@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#~/.movemouse
+#left:11111111
+#right:2222222
+
+#$ mm right|left
+
+DISPLAY=$(awk -v pattern="^$1:" 'match($0, pattern){ print substr( $0, RLENGTH+1, length() ) }' ~/.movemouse)
+
+movemouse $DISPLAY
